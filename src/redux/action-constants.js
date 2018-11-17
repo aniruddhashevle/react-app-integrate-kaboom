@@ -1,0 +1,1 @@
+export const GET_SAMPLE_DATA = 'GET_SAMPLE_DATA';
