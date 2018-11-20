@@ -5,3 +5,30 @@
 3. Redux - Store
 4. redux-thunk - Middleware
 5. SASS - CSS Preprocessor
+
+
+## React Redux App To Run
+
+Follow the steps to run the App:
+
+```bash
+> npm i
+```
+
+Created fake REST API using json-server : https://github.com/typicode/json-server
+```bash
+> npm i -g json-server
+```
+
+Run a server using following command on the port 3030
+```bash
+> json-server --watch db.json --port 3030
+```
+
+Run React and Redux App on the port 3000
+```bash
+> npm start
+```
+
+Above 2 Apps should be running to see the output.
+
