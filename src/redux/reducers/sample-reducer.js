@@ -6,7 +6,7 @@ const INITIAL_STATE = {
     sampleData: null
 };
 
-export default function boatRampsData(state = INITIAL_STATE, action) {
+export default function searchData(state = INITIAL_STATE, action) {
     switch (action.type) {
 
         case GET_SAMPLE_DATA: {

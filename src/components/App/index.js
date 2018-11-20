@@ -1,39 +1,64 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Layout, Header, Navigation, Drawer, Content } from 'react-mdl';
-import { sampleDataRequest } from '../../redux/actions/sample-action';
+import {
+  Layout,
+  Header,
+  Navigation,
+  Drawer,
+  Content,
+  HeaderRow,
+  Tab,
+  HeaderTabs
+} from 'react-mdl';
+import Home from '../Home';
+import LiveChart from '../LiveChart';
+import SearchData from '../SearchData';
 import './app.scss';
 
 class App extends Component {
 
-  componentDidMount = () => {
-    this.props.sampleDataRequest();
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeTab: 0,
+    }
+  }
+
+  changeTab = async (activeTab, e) => {
+    e && e.preventDefault();
+    await this.setState({ activeTab });
+  }
+
+  renderData = () => {
+    switch (this.state.activeTab) {
+      case 0: return <Home />;
+      case 1: return <LiveChart />;
+      case 2: return <SearchData />;
+      default: return <Home />;
+    }
   }
 
   render() {
     return (
       <div className="App">
-        {/* Uses a header that scrolls with the text, rather than staying locked at the top */}
-        <div className="demo-big-content">
-          <Layout>
-            <Header title="Title" scroll>
-              <Navigation>
-                <a href="#">Link</a>
-                <a href="#">Link</a>
-                <a href="#">Link</a>
-                <a href="#">Link</a>
-              </Navigation>
+        <div>
+          <Layout fixedHeader fixedTabs>
+            <Header>
+              <HeaderRow title="Stock Prices" />
+              <HeaderTabs ripple activeTab={this.state.activeTab} onChange={tabId => this.changeTab(tabId)}>
+                <Tab>Home</Tab>
+                <Tab>Live Chart</Tab>
+                <Tab>Search Data</Tab>
+              </HeaderTabs>
             </Header>
-            <Drawer title="Title">
+            <Drawer title="Stock Prices">
               <Navigation>
-                <a href="#">Link</a>
-                <a href="#">Link</a>
-                <a href="#">Link</a>
-                <a href="#">Link</a>
+                <a href="#FIXME" onClick={e => this.changeTab(0, e)}>Home</a>
+                <a href="#FIXME" onClick={e => this.changeTab(1, e)}>Live Chart</a>
+                <a href="#FIXME" onClick={e => this.changeTab(2, e)}>Search Data</a>
               </Navigation>
             </Drawer>
             <Content>
-              <div className="page-content" />
+              {this.renderData()}
             </Content>
           </Layout>
         </div>
@@ -42,4 +67,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, { sampleDataRequest })(App);
+export default App;

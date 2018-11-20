@@ -6,6 +6,7 @@ import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
+import './utils/libraries/canvasjs.min';
 import './index.scss';
 
 ReactDOM.render(
