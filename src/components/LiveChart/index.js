@@ -11,31 +11,32 @@ class LiveChart extends Component {
 
     initSocket = () => {
         this.clientSocket = io('http://kaboom.rksv.net/watch');
+        console.log('this.clientSocket', this.clientSocket.id);
         this.clientSocket.on('connect', () => {
-            this.clientSocket.emit('ping', {});
             // While subscribing, the state must be true
             this.clientSocket.emit('sub', { state: true });
-            this.clientSocket.on('data', data => {
-                console.log('Socket Response: ' + data);
+            this.clientSocket.on('data', (data, ackCallback) => {
                 if (data) {
-                    this.clientSocket.emit(1);
+                    ackCallback(1);
                 }
             });
             this.clientSocket.on('error', function (error) {
                 console.error('Error: ' + error);
+                this.clientSocket.emit('unsub', { state: false });
+            });
+            this.clientSocket.on('message', function (message) {
+                console.log('message', message);
             });
         });
     }
 
     componentDidMount = () => {
-        //To be done later
-        // this.initSocket();
+        this.initSocket();
     }
 
     componentWillUnmount = () => {
-        //To be done later
-        // this.clientSocket.emit('unsub', { state: false });
-        // this.clientSocket = null;
+        this.clientSocket.emit('unsub', { state: false });
+        this.clientSocket = null;
     }
 
     render() {
