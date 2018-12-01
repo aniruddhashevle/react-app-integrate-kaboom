@@ -1,0 +1,25 @@
+.indicators {
+    padding-top: 30px;
+    .chart-indicator-heading {
+        text-align: left;
+        margin-left: 16px;
+    }
+    .indicator-box {
+        width: 20px;
+        height: 20px;
+        margin-right: 20px;
+        display: inline-block;
+    }
+    .open-box {
+        background-color: #6d7cab;
+    }
+    .high-box {
+        background-color: #7cc9a2;
+    }
+    .low-box {
+        background-color: #d18076;
+    }
+    .close-box {
+        background-color: #61999e;
+    }
+}

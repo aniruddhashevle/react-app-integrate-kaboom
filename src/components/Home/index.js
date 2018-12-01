@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CanvasJSChart from '../../utils/libraries/canvasjs.react';
+import ChartIndicators from '../ChartIndicators';
 import { createChartConfig } from '../../utils/home-utils';
 import { historicalDataRequest } from '../../redux/actions/kaboom-actions';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import {
-    List,
-    ListItem
-} from 'react-mdl';
 import './home.scss';
 
 class Home extends Component {
@@ -65,15 +62,7 @@ class Home extends Component {
                     </Select>
                 </FormControl>
                 <CanvasJSChart options={this.state.options} />
-                <div className="indicators">
-                    <h4>Indicators for the Char</h4>
-                    <List>
-                        <ListItem><span className="indicator-box open-box"></span>Open Price</ListItem>
-                        <ListItem><span className="indicator-box high-box"></span>High Price</ListItem>
-                        <ListItem><span className="indicator-box low-box"></span>Low Price</ListItem>
-                        <ListItem><span className="indicator-box close-box"></span>Close Price</ListItem>
-                    </List>
-                </div>
+                <ChartIndicators />
             </div>
         )
     }

@@ -70,6 +70,7 @@ export function createChartConfig(data) {
             // prefix: "t",
             // interval: 2
         },
-        data: combinedData
+        data: combinedData,
+        originalData: data
     }
 }
