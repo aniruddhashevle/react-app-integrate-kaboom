@@ -29,19 +29,19 @@ export function createChartConfig(data) {
         let itemArray = item.split(','),
             dateData = parseFloat(itemArray[0]);
         plotDataForOpenPrice.dataPoints.push(
-            { x: dateData, y: parseFloat(itemArray[1]), date: new Date(dateData).toDateString() }
+            { x: dateData, y: parseFloat(itemArray[1]), date: new Date(dateData).toLocaleString() }
         );
 
         plotDataForHighPrice.dataPoints.push(
-            { x: dateData, y: parseFloat(itemArray[2]), date: new Date(dateData).toDateString() }
+            { x: dateData, y: parseFloat(itemArray[2]), date: new Date(dateData).toLocaleString() }
         );
 
         plotDataForLowPrice.dataPoints.push(
-            { x: dateData, y: parseFloat(itemArray[3]), date: new Date(dateData).toDateString() }
+            { x: dateData, y: parseFloat(itemArray[3]), date: new Date(dateData).toLocaleString() }
         );
 
         plotDataForClosePrice.dataPoints.push(
-            { x: dateData, y: parseFloat(itemArray[4]), date: new Date(dateData).toDateString() }
+            { x: dateData, y: parseFloat(itemArray[4]), date: new Date(dateData).toLocaleString() }
         );
     });
 
