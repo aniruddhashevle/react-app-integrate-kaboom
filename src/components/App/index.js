@@ -11,6 +11,7 @@ import {
 } from 'react-mdl';
 import Home from '../Home';
 import LiveChart from '../LiveChart';
+import LiveTable from '../LiveTable';
 import SearchData from '../SearchData';
 import './app.scss';
 
@@ -32,7 +33,8 @@ class App extends Component {
     switch (this.state.activeTab) {
       case 0: return <Home />;
       case 1: return <LiveChart />;
-      case 2: return <SearchData />;
+      case 2: return <LiveTable />;
+      case 3: return <SearchData />;
       default: return <Home />;
     }
   }
@@ -47,14 +49,16 @@ class App extends Component {
               <HeaderTabs ripple activeTab={this.state.activeTab} onChange={tabId => this.changeTab(tabId)}>
                 <Tab>Home</Tab>
                 <Tab>Live Chart</Tab>
-                <Tab>Search Data</Tab>
+                <Tab>Live Table</Tab>
+                <Tab>Search</Tab>
               </HeaderTabs>
             </Header>
             <Drawer title="Stock Prices">
               <Navigation>
                 <a href="#FIXME" onClick={e => this.changeTab(0, e)}>Home</a>
-                <a href="#FIXME" onClick={e => this.changeTab(1, e)}>Live Chart</a>
-                <a href="#FIXME" onClick={e => this.changeTab(2, e)}>Search Data</a>
+                <a href="#FIXME" onClick={e => this.changeTab(1, e)}>Live Data - Chart</a>
+                <a href="#FIXME" onClick={e => this.changeTab(2, e)}>Live Data - Table</a>
+                <a href="#FIXME" onClick={e => this.changeTab(3, e)}>Search</a>
               </Navigation>
             </Drawer>
             <Content>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CanvasJSChart from '../../utils/libraries/canvasjs.react';
 import ChartIndicators from '../ChartIndicators';
-import { createChartConfig } from '../../utils/home-utils';
+import { createChartConfig } from '../../utils/charts-utilis';
 import { historicalDataRequest } from '../../redux/actions/kaboom-actions';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -40,6 +40,7 @@ class Home extends Component {
     render() {
         return (
             <div className="home-wrapper">
+                <h3>Historical Data</h3>
                 <FormControl>
                     <InputLabel htmlFor="interval-simple">Intervals</InputLabel>
                     <Select
@@ -68,22 +69,8 @@ class Home extends Component {
     }
 }
 
-function mapStateToProps(reduxState) {
-    const {
-        rootReducer: {
-            setKaboomData: {
-                historicalData
-            }
-        }
-    } = reduxState;
-
-    return {
-        historicalData
-    }
-}
-
 export default connect(
-    mapStateToProps,
+    null,
     {
         historicalDataRequest
     }

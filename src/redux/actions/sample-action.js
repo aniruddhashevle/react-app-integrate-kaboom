@@ -2,6 +2,7 @@ import {
     GET_SAMPLE_DATA
 } from '../action-constants';
 import Axios from 'axios';
+import { FAKE_REST_API_URL } from '../../config/constants';
 
 export function getSampleDataforSearch(data) {
     return {
@@ -16,7 +17,7 @@ export function sampleDataRequestForSearch() {
             let resp = await Axios({
                 method: 'get',
                 //fake REST API using json-server : https://github.com/typicode/json-server
-                url: `http://localhost:3030/search_data`,
+                url: `${FAKE_REST_API_URL}/search_data`,
                 withCredentials: true
             });
             if (!resp) throw new Error('no response');

@@ -2,6 +2,7 @@ import Axios from 'axios';
 import {
     GET_HISTORICAL_DATA
 } from '../action-constants';
+import { API_ROOT_URL } from '../../config/constants';
 
 export function getHistoricalData(data) {
     return {
@@ -15,7 +16,7 @@ export function historicalDataRequest(interval = 0) {
         try {
             let resp = await Axios({
                 method: 'get',
-                url: `http://kaboom.rksv.net/api/historical`,
+                url: `${API_ROOT_URL}/api/historical`,
                 params: { interval }
             });
             if (!resp) throw new Error('no response');
