@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CanvasJSChart from '../../utils/libraries/canvasjs.react';
-import ChartIndicators from '../ChartIndicators';
 import { createChartConfig } from '../../utils/charts-utilis';
 import { historicalDataRequest } from '../../redux/actions/kaboom-actions';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import ChartIndicatorsHOC from '../ChartIndicatorsHOC';
 import './home.scss';
 
 class Home extends Component {
@@ -24,6 +24,7 @@ class Home extends Component {
     }
 
     callHistoricalAPI = async () => {
+        console.log('this.props.', this.props);
         let data = await this.props.historicalDataRequest(this.state.interval);
         if (data && data.length > 0) {
             let options = createChartConfig(data);
@@ -63,15 +64,14 @@ class Home extends Component {
                     </Select>
                 </FormControl>
                 <CanvasJSChart options={this.state.options} />
-                <ChartIndicators />
             </div>
         )
     }
 }
 
-export default connect(
+export default ChartIndicatorsHOC(connect(
     null,
     {
         historicalDataRequest
     }
-)(Home);
+)(Home));

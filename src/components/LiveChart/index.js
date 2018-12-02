@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { mountSocket, unmountSocket } from '../../utils/socket-io-utils';
 import CanvasJSChart from '../../utils/libraries/canvasjs.react';
-import ChartIndicators from '../ChartIndicators';
+import ChartIndicatorsHOC from '../ChartIndicatorsHOC';
 import './live-chart.scss';
 
 class LiveChart extends Component {
@@ -30,10 +30,9 @@ class LiveChart extends Component {
                 <CanvasJSChart
                     options={this.state.config}
                 />
-                <ChartIndicators />
             </Fragment>
         );
     }
 }
 
-export default LiveChart;
+export default ChartIndicatorsHOC(LiveChart);

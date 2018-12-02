@@ -14,19 +14,19 @@ class LiveTable extends Component {
         this.clientSocket = null;
         this.tableColumns = [
             {
-                Header: 'Open',
+                Header: 'Open Prices',
                 accessor: 'open_value'
             },
             {
-                Header: 'High',
+                Header: 'High Prices',
                 accessor: 'high_value'
             },
             {
-                Header: 'Low',
+                Header: 'Low Prices',
                 accessor: 'low_value'
             },
             {
-                Header: 'Close',
+                Header: 'Close Prices',
                 accessor: 'close_value'
             },
             {
@@ -49,15 +49,12 @@ class LiveTable extends Component {
         return (
             <Fragment>
                 <h3>Live Data</h3>
-                {/* <CanvasJSChart
-                    options={this.state.options}
-                /> */}
                 <ReactTable
                     {...this.state.config}
                     columns={this.tableColumns}
+                    pageSize={this.state.pageSize}
                     onPageSizeChange={pageSize => this.setState({ pageSize })}
                     className={"-striped -highlight"}
-                    pageSize={this.state.pageSize}
                 />
             </Fragment>
         );
