@@ -41,7 +41,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app-wrapper">
         <div>
           <Layout fixedHeader fixedTabs>
             <Header>
@@ -55,10 +55,10 @@ class App extends Component {
             </Header>
             <Drawer title="Stock Prices">
               <Navigation>
-                <a href="#FIXME" onClick={e => this.changeTab(0, e)}>Home</a>
-                <a href="#FIXME" onClick={e => this.changeTab(1, e)}>Live Data - Chart</a>
-                <a href="#FIXME" onClick={e => this.changeTab(2, e)}>Live Data - Table</a>
-                <a href="#FIXME" onClick={e => this.changeTab(3, e)}>Search</a>
+                <a href="#" onClick={e => this.changeTab(0, e)}>Home</a>
+                <a href="#" onClick={e => this.changeTab(1, e)}>Live Chart</a>
+                <a href="#" onClick={e => this.changeTab(2, e)}>Live Table</a>
+                <a href="#" onClick={e => this.changeTab(3, e)}>Search</a>
               </Navigation>
             </Drawer>
             <Content>

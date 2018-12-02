@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class CanvasJSChart extends Component {
 	constructor(props) {
 		super(props);
-		this.options = props.options ? props.options : {};
+		this.options = props.options || {};
 		this.chart = null;
 	}
 	componentDidMount() {

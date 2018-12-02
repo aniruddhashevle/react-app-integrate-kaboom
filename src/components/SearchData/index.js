@@ -80,7 +80,7 @@ class SearchData extends Component {
             recordsToBeShown = (renderRecords || []).slice(0, this.state.offset * this.noOfRecordsToShow);
         return (
             <div className="search-list-wrapper">
-                <h3>Please Search The Records</h3>
+                <h3>Search The User Records</h3>
                 <Textfield
                     value={this.state.searchValue}
                     onChange={e => this.onSeachChange(e, sampleData)}

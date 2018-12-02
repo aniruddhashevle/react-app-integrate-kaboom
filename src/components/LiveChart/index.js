@@ -9,13 +9,14 @@ class LiveChart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            options: []
+            config: []
         }
         this.clientSocket = null;
     }
 
     componentDidMount = () => {
-        mountSocket(this);
+        //initiate the socket and after getting live OHLC data, this component's state's config is set
+        mountSocket({ context: this, getChartConfig: true });
     }
 
     componentWillUnmount = () => {
@@ -27,7 +28,7 @@ class LiveChart extends Component {
             <Fragment>
                 <h3>Live Data</h3>
                 <CanvasJSChart
-                    options={this.state.options}
+                    options={this.state.config}
                 />
                 <ChartIndicators />
             </Fragment>

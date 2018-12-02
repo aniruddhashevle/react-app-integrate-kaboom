@@ -1,8 +1,9 @@
 import io from 'socket.io-client';
 import { createChartConfig } from './charts-utilis';
 import { API_ROOT_URL } from '../config/constants';
+import { createTableConfig } from './table-utils';
 
-export const mountSocket = (context) => {
+export const mountSocket = ({ context, getChartConfig, getTableConfig }) => {
     context.clientSocket = io(`${API_ROOT_URL}/watch`);
     if (context.clientSocket) {
         context.clientSocket.on('connect', () => {
@@ -12,8 +13,14 @@ export const mountSocket = (context) => {
                 context.clientSocket.emit('sub', { state: true });
                 context.clientSocket.on('data', (data, ackCallback) => {
                     if (data) {
-                        let options = createChartConfig([...[data], ...((context.state.options.originalData) || [])]);
-                        context.setState({ options });
+                        let config = [];
+                        if (getChartConfig) {
+                            config = createChartConfig([...[data], ...((context.state.config.originalData) || [])]);
+                            context.setState({ config });
+                        } else if (getTableConfig) {
+                            config = createTableConfig([...[data], ...((context.state.config.originalData) || [])]);
+                            context.setState({ config });
+                        }
                         ackCallback(1);
                     }
                 });
