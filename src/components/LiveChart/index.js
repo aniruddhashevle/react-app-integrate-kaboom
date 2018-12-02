@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import { mountSocket, unmountSocket } from '../../utils/socket-io-utils';
 import CanvasJSChart from '../../utils/libraries/canvasjs.react';
 import ChartIndicatorsHOC from '../ChartIndicatorsHOC';
-import './live-chart.scss';
 
 class LiveChart extends Component {
 
