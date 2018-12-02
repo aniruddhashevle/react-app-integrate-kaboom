@@ -6,7 +6,7 @@
 4. redux-thunk - Middleware
 5. SASS - CSS Preprocessor
 
-##Other frameworkß/libraries
+## Other frameworkß/libraries
 
 1. CanvasJS - [canvasjs](https://canvasjs.com/)
 2. Socket.io - [socket.io](https://socket.io/)
