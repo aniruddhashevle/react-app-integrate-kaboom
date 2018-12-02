@@ -6,6 +6,11 @@
 4. redux-thunk - Middleware
 5. SASS - CSS Preprocessor
 
+##Other frameworkß/libraries
+
+1. CanvasJS - [canvasjs](https://canvasjs.com/)
+2. Socket.io - [socket.io](https://socket.io/)
+3. React Table - [react-table](https://github.com/react-tools/react-table)
 
 ## React Redux App To Run
 
