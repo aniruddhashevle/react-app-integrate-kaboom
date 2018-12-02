@@ -1,5 +1,5 @@
 .search-list-wrapper {
-    .mdl-list {
+    .mdl-list { 
         width: 80%;
         margin: 20px auto;
         text-align: left;
@@ -19,5 +19,11 @@
     .mdl-list__item {
         border: 1px solid;
         box-shadow: 1px 0px 10px 0px #85a2f3
+    }
+
+    .mdl-list__item--three-line,
+    li.mdl-list__item.mdl-list__item--three-line > * {
+        width: 100%;
+        height: auto;
     }
 }
